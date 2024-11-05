@@ -85,7 +85,7 @@ public class FlatFileItemJobConfig {
         return new StepBuilder("flatFileStep", jobRepository)
                 .<Customer, Customer>chunk(CHUNK_SIZE, transactionManager)
                 .reader(flatFileItemReader())
-                .processor(aggregateCustomerProcessor())  // Processor 추가
+                .processor(aggregateCustomerProcessor())
                 .writer(flatFileItemWriter())
                 .build();
     }
@@ -94,9 +94,10 @@ public class FlatFileItemJobConfig {
     public Job flatFileJob(Step flatFileStep, JobRepository jobRepository) {
         log.info("------------------ Init flatFileJob -----------------");
 
-        return new JobBuilder(FLAT_FILE_CHUNK_JOB, jobRepository)
+        return new JobBuilder("flatFileJob", jobRepository)
                 .incrementer(new RunIdIncrementer())
                 .start(flatFileStep)
                 .build();
     }
+
 }
