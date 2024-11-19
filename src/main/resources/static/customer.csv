@@ -1,3 +1,4 @@
-unclebae,40,Male
-superman,45,Male
-WonderWoman,30,Female
+id,name,age,gender
+1,person1,22,Female
+2,person2,35,Male
+3,person3,28,Male

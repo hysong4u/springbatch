@@ -37,6 +37,9 @@ dependencies {
     //mysql
     implementation 'mysql:mysql-connector-java:8.0.33'
 
+    //mybatis
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.2'
+
 }
 
 tasks.named('test') {
